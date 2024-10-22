@@ -48,3 +48,7 @@ After checking out the repo, run `nix-shell` to install dependencies. Then, run 
 ## License
 
 The gem is available as open source under the terms of the MIT License.
+
+## Why not use superset gem
+
+I couldn't use the [superset gem](https://github.com/rdytech/superset-client) as I had issues installing their dependency (happi). So this is a simple alternative that meets only my needs.
