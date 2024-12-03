@@ -51,6 +51,13 @@ module SupersetClient
       JSON.parse(resp.body)
     end
 
+    def delete_chart(id)
+      resp = @http_conn.delete("chart/#{id}") do |req|
+        req.headers["X-CSRFToken"] = csrf_token
+      end
+      JSON.parse(resp.body)
+    end
+
     def dataset(id)
       resp = @http_conn.get("dataset/#{id}")
       JSON.parse(resp.body)
@@ -58,6 +65,13 @@ module SupersetClient
 
     def create_dataset(dataset_params)
       resp = @http_conn.post("dataset/", dataset_params.to_json) do |req|
+        req.headers["X-CSRFToken"] = csrf_token
+      end
+      JSON.parse(resp.body)
+    end
+
+    def delete_dataset(id)
+      resp = @http_conn.delete("dataset/#{id}") do |req|
         req.headers["X-CSRFToken"] = csrf_token
       end
       JSON.parse(resp.body)
@@ -86,6 +100,13 @@ module SupersetClient
       JSON.parse(resp.body)
     end
 
+    def delete_database(id)
+      resp = @http_conn.delete("database/#{id}") do |req|
+        req.headers["X-CSRFToken"] = csrf_token
+      end
+      JSON.parse(resp.body)
+    end
+
     def dashboard(id)
       resp = @http_conn.get("dashboard/#{id}")
       JSON.parse(resp.body)
@@ -93,6 +114,13 @@ module SupersetClient
 
     def create_dashboard(dashboard_params)
       resp = @http_conn.post("dashboard/", dashboard_params.to_json) do |req|
+        req.headers["X-CSRFToken"] = csrf_token
+      end
+      JSON.parse(resp.body)
+    end
+
+    def delete_dashboard(id)
+      resp = @http_conn.delete("dashboard/#{id}") do |req|
         req.headers["X-CSRFToken"] = csrf_token
       end
       JSON.parse(resp.body)
